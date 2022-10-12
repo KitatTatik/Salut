@@ -18,10 +18,7 @@ struct treeNode
   struct treeNode *leftPtr, *rightPtr;
 };
 
-int exch = 0;
 int r;
-int bps =0;
-int outp=0;
 
 typedef struct treeNode TreeNode;
 typedef TreeNode* TreeNodePtr;
@@ -32,15 +29,8 @@ typedef TreeNode1* TreeNodePtr1;
 
 int cmpres (TreeNodePtr p1, TreeNodePtr1 p2, int res)
 {
-    if (p1->count > p2->count) 
-
-    {	
-        return 1;
-    }	
-    if (p1->count < p2->count) 
-    {	
-        return -1;
-    } 
+    if (p1->count > p2->count)  return 1;
+    if (p1->count < p2->count) return -1;
     if (p1->count = p2->count)
     {
         res=strcmp(p1->data, p2->data); 
@@ -48,7 +38,6 @@ int cmpres (TreeNodePtr p1, TreeNodePtr1 p2, int res)
         if (res < 0) return -1;
     }      
 }
-
 
 TreeNodePtr1 exchange(TreeNodePtr1 *TemPtr, TreeNodePtr treePtr)
 {
@@ -73,10 +62,8 @@ TreeNodePtr1 exchange(TreeNodePtr1 *TemPtr, TreeNodePtr treePtr)
        {
         exchange(&((*TemPtr)->rightPtr), treePtr);
        }	
-    exch++;
-      return(TemPtr1);
+ return(TemPtr1);
 }
-
 
 void insertNode(TreeNodePtr *treePtr, char word[MAX_WORD_SIZE])
 {
@@ -105,7 +92,6 @@ void insertNode(TreeNodePtr *treePtr, char word[MAX_WORD_SIZE])
     }
 }
 
-
 TreeNodePtr1 bypass(TreeNodePtr1 TemPtr, TreeNodePtr treePtr)
 {
     TreeNodePtr1 TemPtr1;	
@@ -114,11 +100,9 @@ TreeNodePtr1 bypass(TreeNodePtr1 TemPtr, TreeNodePtr treePtr)
 	TemPtr1=exchange(&TemPtr,treePtr);    
         bypass(TemPtr,treePtr->leftPtr);
         bypass(TemPtr,treePtr->rightPtr);
-	bps++;
 	return(TemPtr1);
     }
 }
-
 
 void alphabetic(TreeNodePtr treePtr)
 {   
@@ -137,7 +121,6 @@ void alphabetic2(TreeNodePtr1 TemPtr)
         alphabetic2(TemPtr->leftPtr);
         printf(" %s\t\t%d\n", TemPtr->data, TemPtr->count);
         alphabetic2(TemPtr->rightPtr);
-        outp++;
     }
 }
 
