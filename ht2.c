@@ -33,18 +33,6 @@ struct node * add(hashtable *h, char *key, int freq) {
     return newnode;
 }
 
-bool contains(hashtable *h, char *key) {
-    int index = hashcode(key) % h->tablesize;
-    struct node *current = h->table[index];
-
-    while(current != NULL) {
-        if(strcmp(key, current->key) == 0)
-            return true;
-        current = current->next;
-    }
-    return false;
-}
-
 struct node * getnode(hashtable *h, char *key) {
     int index = hashcode(key) % h->tablesize;
     struct node *current = h->table[index];
