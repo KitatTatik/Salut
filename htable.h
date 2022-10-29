@@ -23,8 +23,6 @@ typedef struct hashtable hashtable;
 
 struct node * add(hashtable *, char *, int);
 
-bool contains(hashtable *, char *);
-
 struct node * getnode(hashtable *, char *);
 
 void deletenode(hashtable *, char *);
